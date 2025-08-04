@@ -80,7 +80,7 @@ class HomeController extends Controller
             ->take(4)
             ->get();
 
-        return view('books.detail', compact('book', 'relatedBooks'));
+        return view('admin.books.detail', compact('book', 'relatedBooks'));
     }
 
     public function about()

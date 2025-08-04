@@ -15,6 +15,24 @@ class SuperAdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Cek apakah user sudah login
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', 'Silakan login terlebih dahulu.');
+        }
+
+        $user = auth()->user();
+
+        // Only allow admin (super admin)
+        if (!$user->isAdmin()) {
+            abort(403, 'Hanya Administrator yang dapat mengakses halaman ini.');
+        }
+
+        // Cek apakah user aktif
+        if (!$user->is_active) {
+            auth()->logout();
+            return redirect()->route('login')->with('error', 'Akun Anda telah dinonaktifkan.');
+        }
+
         return $next($request);
     }
 }

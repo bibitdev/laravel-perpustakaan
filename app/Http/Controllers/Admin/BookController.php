@@ -14,7 +14,7 @@ class BookController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        // $this->middleware('admin');
     }
 
     public function index(Request $request)
@@ -68,7 +68,8 @@ class BookController extends Controller
             'location' => 'nullable|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'is_featured' => 'boolean',
+            'is_featured' => 'nullable|boolean',
+
         ], [
             'title.required' => 'Judul buku harus diisi.',
             'isbn.unique' => 'ISBN sudah digunakan untuk buku lain.',
@@ -143,7 +144,7 @@ class BookController extends Controller
             'location' => 'nullable|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'is_featured' => 'boolean',
+            'is_featured' => 'nullable|boolean',
         ], [
             'title.required' => 'Judul buku harus diisi.',
             'isbn.unique' => 'ISBN sudah digunakan untuk buku lain.',

@@ -12,34 +12,37 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        // Create Admin User
+        // Super Admin
         User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@prigi.desa.id',
-            'password' => Hash::make('password'),
+            'name' => 'Super Administrator',
+            'email' => 'admin@prigi.com',
+            'password' => Hash::make('admin123'),
             'role' => 'admin',
             'phone' => '081234567890',
-            'address' => 'Desa Prigi, Kec. Sigaluh, Kab. Banjarnegara',
+            'address' => 'Desa Prigi, Watulimo, Trenggalek',
+            'is_active' => true
         ]);
 
-        // Create Petugas
+        // Petugas
         User::create([
-            'name' => 'Siti Nurhaliza',
-            'email' => 'petugas@prigi.desa.id',
-            'password' => Hash::make('password'),
+            'name' => 'Petugas Perpustakaan',
+            'email' => 'petugas@prigi.com',
+            'password' => Hash::make('petugas123'),
             'role' => 'petugas',
-            'phone' => '081234567891',
-            'address' => 'Desa Prigi, Kec. Sigaluh, Kab. Banjarnegara',
+            'phone' => '082345678901',
+            'address' => 'Desa Prigi, Watulimo, Trenggalek',
+            'is_active' => true
         ]);
 
-        // Create Sample Member
+        // Member
         User::create([
-            'name' => 'Ahmad Fauzi',
-            'email' => 'member@prigi.desa.id',
-            'password' => Hash::make('password'),
+            'name' => 'Warga Desa Prigi',
+            'email' => 'member@prigi.com',
+            'password' => Hash::make('member123'),
             'role' => 'member',
-            'phone' => '081234567892',
-            'address' => 'Desa Prigi, Kec. Sigaluh, Kab. Banjarnegara',
+            'phone' => '083456789012',
+            'address' => 'Desa Prigi, Watulimo, Trenggalek',
+            'is_active' => true
         ]);
 
         // Create Categories

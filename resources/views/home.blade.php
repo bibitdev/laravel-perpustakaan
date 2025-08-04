@@ -110,7 +110,7 @@
             @foreach($categories as $category)
                 <a href="{{ route('books', ['category' => $category->id]) }}" class="category-card" style="border-top-color: {{ $category->color }}; text-decoration: none;">
                     <div class="category-icon" style="color: {{ $category->color }};">
-                        <i class="fas fa-{{ $this->getCategoryIcon($category->name) }}"></i>
+                        <i class="fas fa-{{ getCategoryIcon($category->name) }}"></i>
                     </div>
                     <h3 class="category-name">{{ $category->name }}</h3>
                     <p class="category-count">{{ $category->active_books_count }} buku tersedia</p>
@@ -192,25 +192,4 @@
 </section>
 @endsection
 
-@php
-function getCategoryIcon($categoryName) {
-    $icons = [
-        'Fiksi' => 'magic',
-        'Non-Fiksi' => 'brain',
-        'Sejarah' => 'landmark',
-        'Sains' => 'flask',
-        'Teknologi' => 'laptop-code',
-        'Agama' => 'pray',
-        'Pendidikan' => 'graduation-cap',
-        'Kesehatan' => 'heartbeat',
-        'Ekonomi' => 'chart-line',
-        'Hukum' => 'balance-scale',
-        'Seni' => 'palette',
-        'Olahraga' => 'running',
-        'Biografi' => 'user-circle',
-        'Referensi' => 'book-open',
-    ];
 
-    return $icons[$categoryName] ?? 'book';
-}
-@endphp
